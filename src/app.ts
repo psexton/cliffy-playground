@@ -1,9 +1,5 @@
 import { Command, EnumType } from "https://deno.land/x/cliffy@v1.0.0-rc.3/command/mod.ts";
-
-enum Animal {
-  Dog = "dog",
-  Cat = "cat",
-}
+import { Animal } from "./types.ts"
 
 // Enum type with enum.
 const animal = new EnumType(Animal);
@@ -27,4 +23,3 @@ await new Command()
     console.log("animal: %s", animal);
   })
   .parse(Deno.args);
-  
