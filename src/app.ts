@@ -1,15 +1,10 @@
 import { Command, EnumType } from "https://deno.land/x/cliffy@v1.0.0-rc.3/command/mod.ts";
 import { Animal } from "./types.ts"
-
-// Enum type with enum.
-const animal = new EnumType(Animal);
-
-// Enum type with array.
-const color = new EnumType(["blue", "yellow", "red"]);
+import * as util from "./util.ts"
 
 await new Command()
-  .type("color", color)
-  .type("animal", animal)
+  .type("color", new EnumType(util.colors))  // Enum type with array.
+  .type("animal", new EnumType(Animal))  // Enum type with enum.
   .option(
     "-c, --color [name:color]",
     "Choose a color.",
